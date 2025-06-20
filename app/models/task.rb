@@ -10,5 +10,5 @@ class Task < ApplicationRecord
   scope :completed, -> { where(is_completed: true) }
   scope :pending, -> { where(is_completed: false) }
   scope :due_today, -> { where(due_date: Date.current) }
-  scope :overdue, -> { where('due_date < ? AND completed = ?', Date.current, false) }
+  scope :overdue, -> { where("due_date < ? AND completed = ?", Date.current, false) }
 end
